@@ -10,20 +10,23 @@ use Alura\Leilao\Service\Avaliador;
 
 class AvaliadorTest extends TestCase {
 
+  private $leiloeiro;
+
+  protected function setUp (): void {
+    $this->leiloeiro =  new Avaliador();
+  }
+
   /**
    * @dataProvider leilaoOrdemCrescente
    * @dataProvider leilaoOrdemDecrescente
    * @dataProvider leilaoOrdemAleatoria
-   */
-
+  */
   //métodos de testes
   public function testAvaliadorEncontraMaiorValorLances (Leilao $leilao) {
-    $leiloeiro = new Avaliador();
-
     // execução do teste
-    $leiloeiro->avalia ($leilao);
+    $this->leiloeiro->avalia ($leilao);
 
-    $maiorValor = $leiloeiro->getMaiorValor();
+    $maiorValor = $this->leiloeiro->getMaiorValor();
 
     self::assertEquals(5200, $maiorValor);
   }
@@ -32,15 +35,12 @@ class AvaliadorTest extends TestCase {
    * @dataProvider leilaoOrdemCrescente
    * @dataProvider leilaoOrdemDecrescente
    * @dataProvider leilaoOrdemAleatoria
-   */
-
+  */
   public function testAvaliadorEncontraMenorValorLances (Leilao $leilao) {
-    $leiloeiro = new Avaliador();
-
     // execução do teste
-    $leiloeiro->avalia ($leilao);
+    $this->leiloeiro->avalia ($leilao);
 
-    $menorValor = $leiloeiro->getMenorValor();
+    $menorValor = $this->leiloeiro->getMenorValor();
 
     self::assertEquals(1210, $menorValor);
   }
@@ -49,14 +49,12 @@ class AvaliadorTest extends TestCase {
    * @dataProvider leilaoOrdemCrescente
    * @dataProvider leilaoOrdemDecrescente
    * @dataProvider leilaoOrdemAleatoria
-   */
-
+  */
   public function testAvaliadorEncontraTresMaioresLances (Leilao $leilao) {
-    $leiloeiro = new Avaliador ();
+    // execução do teste
+    $this->leiloeiro->avalia ($leilao);
 
-    $leiloeiro->avalia($leilao);
-
-    $maiores = $leiloeiro->getMaioresLances();
+    $maiores = $this->leiloeiro->getMaioresLances();
 
     // verificação de quantos itens tem no array
     static::assertCount(3, $maiores);
@@ -67,7 +65,7 @@ class AvaliadorTest extends TestCase {
     static::assertEquals(2200, $maiores[2]->getValor());
   }
 
-  // métodos para tirar a repetição de código
+  // métodos para tirar a repetição de código (dados)
   public function leilaoOrdemCrescente () {
     $leilao = new Leilao ('Fiat 147 0km');
 
@@ -83,7 +81,6 @@ class AvaliadorTest extends TestCase {
 
     return [[$leilao]];
   }
-
   public function leilaoOrdemDecrescente () {
     $leilao = new Leilao ('Fiat 147 0km');
 
@@ -99,7 +96,6 @@ class AvaliadorTest extends TestCase {
 
     return [[$leilao]];
   }
-
   public function leilaoOrdemAleatoria () {
     $leilao = new Leilao ('Fiat 147 0km');
 
