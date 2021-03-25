@@ -9,3 +9,7 @@ Avaliador (Alura\Leilao\Tests\Service\Avaliador)
  [x] Avaliador encontra tres maiores lances with data set "ordem-decrescente"
  [x] Avaliador encontra tres maiores lances with data set "ordem-aleatória"
 
+Leilao (Alura\Leilao\Tests\Model\Leilao)
+ [x] Leilao recebe lances with data set "1 Lance"
+ [x] Leilao recebe lances with data set "2 Lances"
+
