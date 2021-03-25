@@ -35,7 +35,7 @@ class Leilao {
   */
 
   private function doUltimoUsuario (Lance $lance): bool {
-    $ultimoLance = $this->lances[count($this->lances) - 1];
+    $ultimoLance = $this->lances[array_key_last($this->lances)];
 
     return $lance->getUsuario() == $ultimoLance->getUsuario();
   }
