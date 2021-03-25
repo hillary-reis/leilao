@@ -10,6 +10,8 @@ use Alura\Leilao\Service\Avaliador;
 
 class AvaliadorTest extends TestCase {
 
+  /** @var Avaliador */
+
   private $leiloeiro;
 
   protected function setUp (): void {
@@ -63,6 +65,15 @@ class AvaliadorTest extends TestCase {
     static::assertEquals(5200, $maiores[0]->getValor());
     static::assertEquals(3280, $maiores[1]->getValor());
     static::assertEquals(2200, $maiores[2]->getValor());
+  }
+
+  public function testLelaoVazioSemAvaliacao () {
+    $this->expectException(\DomainException::class);
+    $this->expectExceptionMessage ('Não é possível avaliar um leilão vazio (sem lances)!!');
+    
+    $leilao = new Leilao ('Fusca Azul');
+    
+    $this->leiloeiro->avalia($leilao);    
   }
 
   // métodos para tirar a repetição de código (dados)

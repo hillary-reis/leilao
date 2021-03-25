@@ -11,6 +11,10 @@ class Avaliador {
   private $menorValor = INF;
   
   public function avalia(Leilao $leilao):void {
+
+    if (empty($leilao->getLances())) {
+      throw new \DomainException('Não é possível avaliar um leilão vazio (sem lances)!!');
+    }
     
     foreach ($leilao->getLances() as $lance) {
       if ($lance->getValor() > $this->maiorValor) {
