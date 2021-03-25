@@ -76,6 +76,19 @@ class AvaliadorTest extends TestCase {
     $this->leiloeiro->avalia($leilao);    
   }
 
+  public function testLeilaoFinalizadoSemAvaliacoes () {
+    $this->expectException(\DomainException::class);
+    $this->expectExceptionMessage('Leilão finalizado.');
+    
+    $leilao = new Leilao ('Fiat 147 0km');
+
+    $leilao->recebeLance (new Lance (new Usuario('Amanda'), 2000));
+
+    $leilao->finaliza();
+    
+    $this->leiloeiro->avalia ($leilao);
+  }
+
   // métodos para tirar a repetição de código (dados)
   public function leilaoOrdemCrescente () {
     $leilao = new Leilao ('Fiat 147 0km');

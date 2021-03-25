@@ -9,6 +9,7 @@ Avaliador (Alura\Leilao\Tests\Service\Avaliador)
  [x] Avaliador encontra tres maiores lances with data set "ordem-decrescente"
  [x] Avaliador encontra tres maiores lances with data set "ordem-aleatória"
  [x] Lelao vazio sem avaliacao
+ [x] Leilao finalizado sem avaliacoes
 
 Leilao (Alura\Leilao\Tests\Model\Leilao)
  [x] Leilao recebe lances with data set "1 Lance"
