@@ -1,0 +1,11 @@
+Avaliador (Alura\Leilao\Tests\Service\Avaliador)
+ [x] Avaliador encontra maior valor lances with data set "ordem-crescente"
+ [x] Avaliador encontra maior valor lances with data set "ordem-decrescente"
+ [x] Avaliador encontra maior valor lances with data set "ordem-aleatória"
+ [x] Avaliador encontra menor valor lances with data set "ordem-crescente"
+ [x] Avaliador encontra menor valor lances with data set "ordem-decrescente"
+ [x] Avaliador encontra menor valor lances with data set "ordem-aleatória"
+ [x] Avaliador encontra tres maiores lances with data set "ordem-crescente"
+ [x] Avaliador encontra tres maiores lances with data set "ordem-decrescente"
+ [x] Avaliador encontra tres maiores lances with data set "ordem-aleatória"
+
