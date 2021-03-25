@@ -12,4 +12,5 @@ Avaliador (Alura\Leilao\Tests\Service\Avaliador)
 Leilao (Alura\Leilao\Tests\Model\Leilao)
  [x] Leilao recebe lances with data set "1 Lance"
  [x] Leilao recebe lances with data set "2 Lances"
+ [x] Leilao sem lances repetidos
 

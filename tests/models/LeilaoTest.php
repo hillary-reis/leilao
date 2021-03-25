@@ -11,7 +11,7 @@ class LeilaoTest extends TestCase {
 
   /**
    * @dataProvider geraLances
-   */
+  */
 
   public function testLeilaoRecebeLances (int $qntLances, Leilao $leilao, array $valores) {
     
@@ -20,6 +20,18 @@ class LeilaoTest extends TestCase {
     foreach ($valores as $i => $valorEsperado) {
       static::assertEquals ($valorEsperado, $leilao->getLances()[$i]->getValor());
     }
+  }
+
+  public function testLeilaoSemLancesRepetidos () {
+    $leilao = new Leilao ('Fiat 147 0km');
+
+    $ana = new Usuario ('Ana');
+
+    $leilao->recebeLance (new Lance ($ana, 1000));
+    $leilao->recebeLance (new Lance ($ana, 1500));
+
+    static::assertCount (1, $leilao->getLances());
+    static::assertEquals (1000, $leilao->getLances()[0]->getValor());
   }
 
   public function geraLances () {
